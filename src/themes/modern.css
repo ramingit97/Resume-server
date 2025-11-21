@@ -1,0 +1,40 @@
+/* modern.css */
+
+/* Переменная для акцентного цвета */
+:root {
+    --accent-color: #0077b6; /* LinkedIn Blue */
+}
+
+body { 
+    font-family: 'Arial', sans-serif; 
+    font-size: 10.5pt;
+    line-height: 1.4;
+    padding: 15mm 25mm; 
+}
+
+h1 { 
+    font-size: 24pt; 
+    color: var(--accent-color); /* Используем акцентный цвет */
+    margin-bottom: 0;
+}
+
+h2 { 
+    font-size: 15pt; 
+    color: #333;
+    /* Жирная линия */
+    border-bottom: 3px solid var(--accent-color); 
+    padding-top: 15pt;
+    margin-top: 30pt;
+    margin-bottom: 10pt;
+    text-transform: capitalize;
+}
+
+/* Контакты, сгруппированные сверху */
+.contact-info {
+    text-align: center;
+    margin-bottom: 20pt;
+    font-size: 11pt;
+}
+
+/* Опыт работы */
+ul { list-style-type: disc; padding-left: 20pt; }

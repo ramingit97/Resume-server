@@ -1,0 +1,113 @@
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Trebuchet MS', sans-serif; }
+.cv-container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "sidebar header" "sidebar content";
+  width: 100%;
+  height: 100%;
+  background: #f0fdf4;
+}
+.header-area {
+  grid-area: header;
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  color: white;
+  padding: 45px 40px;
+}
+.header-area h1 {
+  font-size: 2.7rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.header-area p {
+  font-size: 1.2rem;
+  opacity: 0.95;
+}
+.sidebar {
+  grid-area: sidebar;
+  background: linear-gradient(180deg, #064e3b 0%, #065f46 100%);
+  color: #d1fae5;
+  padding: 45px 25px;
+}
+.photo-placeholder {
+  width: 140px;
+  height: 140px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #10b981, #34d399);
+  margin: 0 auto 30px;
+  border: 4px solid rgba(16, 185, 129, 0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.sidebar h2 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #6ee7b7;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 8px 12px;
+  background: rgba(16, 185, 129, 0.2);
+  border-radius: 5px;
+}
+.sidebar h2:first-of-type { margin-top: 0; }
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+.sidebar ul li {
+  padding: 8px 0 8px 20px;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  position: relative;
+}
+.sidebar ul li::before {
+  content: '🌿';
+  position: absolute;
+  left: 0;
+  font-size: 0.7rem;
+}
+.content {
+  grid-area: content;
+  padding: 35px 40px;
+  background: white;
+}
+.content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #065f46;
+  margin-top: 30px;
+  margin-bottom: 18px;
+  padding: 12px 20px;
+  background: linear-gradient(90deg, #d1fae5 0%, transparent 100%);
+  border-left: 5px solid #10b981;
+}
+.content h2:first-child { margin-top: 0; }
+.content h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #047857;
+  margin-top: 18px;
+}
+.content ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 12px 0 22px;
+}
+.content ul li {
+  padding-left: 25px;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: #374151;
+  position: relative;
+}
+.content ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 5px;
+  color: #10b981;
+  font-weight: bold;
+}

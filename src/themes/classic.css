@@ -1,0 +1,37 @@
+/* classic.css */
+
+body { 
+    font-family: Georgia, 'Times New Roman', serif; 
+    font-size: 11pt;
+    line-height: 1.5;
+    padding: 20mm; /* Строгие поля */
+}
+
+h1 { 
+    font-size: 22pt;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 5pt;
+}
+
+h2 { 
+    font-size: 16pt;
+    color: #444; 
+    /* Тонкая линия подчеркивания */
+    border-bottom: 1px solid #999; 
+    padding-top: 10pt;
+    padding-bottom: 3pt;
+    margin-top: 25pt;
+    margin-bottom: 8pt;
+}
+
+/* Списки контактов и информации */
+ul { 
+    list-style-type: none; 
+    padding-left: 0; 
+    margin-bottom: 10pt;
+}
+
+/* Опыт работы */
+strong { font-weight: bold; display: inline; } 
+p { margin-bottom: 5pt; }

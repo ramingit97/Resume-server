@@ -1,0 +1,363 @@
+:root {
+  --main-bg-color: #f8f9fa; /* Общий фон */
+  --primary-color: #0077b6; /* Акцентный синий */
+  --header-bg-color: #e9ecef; /* Фон шапки */
+  --text-color: #343a40; 
+  --light-text-color: #6c757d;
+  --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  background-color: var(--main-bg-color);
+}
+
+.cv-container {
+  width: 210mm; 
+  min-height: 297mm; 
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 1. Блок Шапки (cv-header) */
+.cv-header {
+  display: flex;
+  padding: 20px 30px;
+  background-color: var(--header-bg-color);
+  align-items: center;
+  border-bottom: 5px solid var(--primary-color);
+}
+
+/* Фото Профиля (если вы добавили <img class="profile-photo"> в Markdown) */
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 30px;
+  border: 3px solid white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 1. Блок Шапки (cv-header) - УЛУЧШЕННЫЙ МАКЕТ */
+.cv-header {
+  display: flex;
+  padding: 30px; /* Увеличиваем вертикальный отступ */
+  background-color: var(--header-bg-color);
+  align-items: center;
+  border-bottom: 5px solid var(--primary-color);
+}
+
+/* Контейнер для текста в шапке */
+.cv-header .header-text { 
+    flex-grow: 1;
+    margin-right: 30px; /* Отступ от фото, если оно есть */
+}
+
+/* Имя */
+.cv-header h1 {
+  font-size: 2.8em; /* Немного крупнее */
+  margin-top: 0;
+  margin-bottom: 0px; /* Уменьшаем отступ */
+  color: var(--text-color);
+  line-height: 1.1;
+}
+
+/* Позиция (если генерируется как p, это не сработает, если h1 слился с h2) */
+/* **ПРИМЕЧАНИЕ:** Если h1 и h2 слиплись, этот селектор не сработает! */
+.cv-header h1 + p { 
+    font-size: 1.4em;
+    color: var(--primary-color); /* Позиция цветом акцента */
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+/* Скрываем h2 (Контакты) в шапке, так как это просто разделитель для парсера */
+.cv-header h2 {
+    display: none; 
+}
+
+/* Контейнер для Контактов (чтобы расположить их горизонтально) */
+.cv-header > p:first-of-type { /* Начинаем контакты с первого <p> после h2 (который скрыт) */
+    display: flex;
+    flex-wrap: wrap; /* Перенос на новую строку, если контактов много */
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Стиль для каждого отдельного контакта */
+.cv-header p {
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin: 0; /* Удаляем вертикальные отступы */
+    margin-right: 25px; /* Горизонтальный отступ между контактами */
+    padding-left: 20px; 
+    position: relative;
+    /* Убедимся, что ссылки не синие по умолчанию */
+    color: var(--text-color); 
+    white-space: nowrap; /* Предотвращаем разрыв контакта на две строки */
+}
+
+/* --- СТИЛИЗАЦИЯ ИКОНОК --- */
+
+/* Общий стиль для всех иконок (если используем ::before) */
+.cv-header p::before {
+  /* ... (оставляем старые правила Font Awesome) ... */
+  position: absolute;
+  left: 0;
+  top: 0; 
+  font-size: 1em; /* Меньше, чтобы лучше смотрелось */
+}
+
+/* 2. Контейнер для двух колонок под шапкой */
+.cv-content-columns {
+    display: flex;
+}
+
+/* --- Левая Колонка (Второстепенное) --- */
+.left-column {
+    width: 30%; 
+    padding: 20px 20px 20px 30px;
+    box-sizing: border-box;
+    border-right: 1px solid #dee2e6; /* Тонкий разделитель */
+}
+
+/* Заголовки секций слева */
+.left-column h2 {
+    font-size: 1.2em;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 3px;
+    margin-top: 1.5em;
+    margin-bottom: 10px;
+}
+
+.left-column h2:first-of-type {
+    margin-top: 0;
+}
+
+/* Списки слева (Навыки, Стек) */
+.left-column ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 5px;
+    margin-bottom: 1.5em;
+}
+
+.left-column li {
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin-bottom: 3px;
+    /* Маркер в виде точки */
+    position: relative;
+    padding-left: 15px; 
+}
+
+.left-column li::before {
+    content: "•"; 
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+
+
+/* --- Правая Колонка (Основное) --- */
+.right-column {
+    width: 70%; 
+    padding: 20px 30px 20px 20px;
+    box-sizing: border-box;
+}
+
+/* Заголовки секций справа */
+.right-column h2 {
+    font-size: 1.6em;
+    color: var(--text-color);
+    margin-top: 1.5em;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.right-column h2::after {
+    content: "";
+    display: block;
+    width: 50px; /* Короткая акцентная линия */
+    height: 3px;
+    background: var(--primary-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.right-column h2:first-of-type {
+    margin-top: 0;
+}
+
+/* Summary */
+.right-column .summary p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Блоки Опыта и Проектов */
+.right-column strong:first-child { /* Название Компании/Проекта */
+  display: block;
+  font-size: 1.1em;
+  color: var(--primary-color);
+  margin-top: 15px;
+  margin-bottom: 3px;
+}
+
+.right-column em { /* Должность/Технологии */
+  display: block;
+  font-size: 0.9em;
+  color: var(--light-text-color);
+  margin-bottom: 10px;
+}
+
+/* Списки достижений (правая колонка) */
+.right-column ul {
+  padding-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+.right-column ul li {
+  margin-bottom: 8px;
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+.right-column ul li::marker {
+    color: var(--primary-color); 
+}
+
+.cv-name-title-block {
+  padding: 30px 30px 10px 30px; 
+  background-color: var(--primary-color); 
+  color: white; 
+  text-align: center; /* ЦЕНТРИРОВАНИЕ ТЕКСТА */
+}
+
+/* Имя */
+.cv-name-title-block h1 {
+  font-size: 2.8em; 
+  margin: 0;
+  font-weight: 700;
+}
+
+/* Позиция */
+.cv-name-title-block h1 + p { 
+  font-size: 1.4em;
+  color: #e9ecef; 
+  margin: 5px 0 0 0;
+  font-weight: 400;
+}
+
+
+/* 2. Блок КОНТАКТОВ (Горизонтальное расположение) */
+.cv-contacts-block {
+  padding: 10px 30px 20px 30px; 
+  background-color: var(--header-bg-color); 
+  border-bottom: 3px solid #dee2e6;
+
+  /* КЛЮЧЕВОЕ ИЗМЕНЕНИЕ: Flexbox для горизонтального расположения */
+  display: flex;
+  justify-content: center; /* Центрируем контакты по горизонтали */
+  flex-wrap: wrap; 
+}
+
+/* Скрываем заголовок "Контакты" (H2) */
+.cv-contacts-block h2 {
+  display: none; 
+}
+
+/* Стиль для каждого отдельного контакта (теперь это отдельные <p> благодаря постобработке) */
+.cv-contacts-block p {
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin: 5px 15px; /* Вертикальный и горизонтальный отступ между элементами */
+  padding-left: 20px; 
+  position: relative;
+  color: var(--text-color); 
+  white-space: nowrap; 
+}
+
+/* --- СТИЛИЗАЦИЯ ИКОНОК (с использованием добавленных <span>) --- */
+
+/* Общий стиль для всех добавленных иконок */
+.cv-contacts-block span[class^="icon-"] {
+  position: absolute;
+  left: 0;
+  top: 0; 
+  /* Используем Font Awesome через CSS, как мы обсуждали */
+}
+.cv-contacts-block span[class^="icon-"]::before {
+  font-family: 'Font Awesome 6 Free'; 
+  font-weight: 900; 
+  color: var(--primary-color); 
+  font-size: 1em; 
+}
+
+/* Стили для печати */
+@media print {
+  .cv-container {
+    box-shadow: none;
+  }
+  .cv-header, .left-column, .right-column {
+    padding: 15px 30px !important;
+  }
+}
+
+.icon-email::before {
+  font-family: 'Font Awesome 6 Free'; font-weight:900;
+  content: "\f0e0"; /* envelope */
+  margin-right: 5px; color: var(--primary-color);
+}
+.icon-phone::before {
+  font-family: 'Font Awesome 6 Free'; font-weight:900;
+  content: "\f095"; /* phone */
+  margin-right: 5px; color: var(--primary-color);
+}
+.icon-github::before {
+  font-family: 'Font Awesome 6 Free'; font-weight:900;
+  content: "\f09b"; /* github */
+  margin-right: 5px; color: var(--primary-color);
+}
+.icon-linkedin::before {
+  font-family: 'Font Awesome 6 Free'; font-weight:900;
+  content: "\f08c"; /* linkedin */
+  margin-right: 5px; color: var(--primary-color);
+}
+.icon-location::before {
+  font-family: 'Font Awesome 6 Free'; font-weight:900;
+  content: "\f3c5"; /* map marker */
+  margin-right: 5px; color: var(--primary-color);
+}
+.icon-generic::before {
+  font-family: 'Font Awesome 6 Free'; font-weight:900;
+  content: "\f0c9"; /* bars */
+  margin-right: 5px; color: var(--primary-color);
+}
+
+.contacts-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.contacts-inline .contact-item {
+  font-size: 12px;
+  opacity: 0.8;
+  display: inline-flex;
+  align-items: center;
+}
