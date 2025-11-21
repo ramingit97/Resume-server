@@ -34,8 +34,6 @@ services:
       DB_DATABASE: resume
     ports:
       - "5004:5004"
-    volumes:
-      - ./:/app
 
 volumes:
   postgres-data:
